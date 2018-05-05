@@ -1,9 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Simple to do list</title>
-</head>
-<body>
-	<p>To do list goes here!</p>
-</body>
-</html>
+<h1>My to do list</h1>
+
+<h2>To do</h2>
+
+<ul>
+	{{#each todos}}
+		{{#unless this.done}}
+			<li>{{this.item_name}}<button class='complete-todo' id={{this.id}}>Completed</button></li>
+		{{/unless}}
+	{{/each}}
+</ul>
+
+<br>
+
+<h2>Done</h2>
+
+<ul>
+	{{#each todos}}
+		{{#if this.done}}
+			<li>{{this.item_name}}</li>
+		{{/if}}
+	{{/each}}
+</ul>
+
+
+<form class='create-todo'>
+	<p>Enter a new to do:</p>>
+	<input type="text" name="new_todo">
+	<button type="submit">Submit</button>
+</form>
