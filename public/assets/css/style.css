@@ -1,3 +1,105 @@
+/* Applies to entire page */
+#container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+div, button {
+  font-size: 18px;
+  font-family: serif;
+}
+
+/* Applies to header */
+header {
+  text-align: center;
+}
+
 h1 {
-  color: blue;
+  font-size: 40px;
+  margin: 15px auto;
+}
+
+img {
+  height: 60px;
+  margin: 0 auto;
+}
+
+/* Applies to new to do input form */
+label {
+  font-style: italic;
+}
+
+input[name=new-todo] {
+  height: 22px;
+}
+
+button[type='submit'] {
+  background-color: grey;
+  color: white;
+  font-size: 18px;
+  font-family: Serif;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
+form {
+  text-align: center;
+  margin: 20px;
+}
+
+/* Applies to To Do and Done lists */
+section {
+  width:350px;
+  vertical-align: top;
+}
+
+section.todos-list-pending {
+  float: left;
+}
+
+section.todos-list-done {
+  float: right;
+}
+
+h2 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.todo {
+  background-color: #D2D8DD;
+  border-radius: 5px;
+  margin: 10px 0px 10px 0px;
+  padding: 10px;
+  height: 25px;
+}
+
+.todo-content {
+  text-align: left;
+  display: inline-block;
+  line-height: 25px;
+  vertical-align: middle;
+}
+
+.todo-completion {
+  float: right;
+  border-radius: 5px;
+}
+
+/* Applies to footer */
+footer {
+  margin: 40px auto;
+  padding: 30px;
+  color: rgb(200,200,200);
+  text-align: center;
+  font-size: 16px;
+  clear:both;
+  border: 1px solid transparent;
+}
+
+/* Clearfix */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }

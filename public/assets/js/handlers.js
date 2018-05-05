@@ -1,9 +1,11 @@
 $(document).ready(() => {
 
+  // handler for creating a new to do by submitting the form
   $('.create-todo').on('submit', (event) => {
     event.preventDefault();
-    var todo = $('[name=new_todo]').val().trim();
-
+    // get description of to do
+    var todo = $('[name=new-todo]').val().trim();
+    // call POST route to create
     $.ajax('api/todos', {
       type: 'POST',
       data: {todo: todo},
@@ -13,11 +15,12 @@ $(document).ready(() => {
     });
   });
 
-  $('.complete-todo').on('click', (event) => {
+  // handler for completing a to do
+  $('.todo-completion').on('click', (event) => {
     event.preventDefault();
+    // get id of the to do that is completed
     var todo_id = $(event.target).attr('id');
-
-
+    // call PUT route to complete
     $.ajax({
       type: 'PUT',
       url: 'api/todos/' + todo_id, 
@@ -28,26 +31,3 @@ $(document).ready(() => {
   });
 
 });
-
-
-// $(".create-form").on("submit", function(event) {
-//   // Make sure to preventDefault on a submit event.
-//   event.preventDefault();
-
-//   var newCat = {
-//     name: $("#ca").val().trim(),
-//     sleepy: $("[name=sleepy]:checked").val().trim()
-//   };
-
-//   // Send the POST request.
-//   $.ajax("/api/cats", {
-//     type: "POST",
-//     data: newCat
-//   }).then(
-//     function() {
-//       console.log("created new cat");
-//       // Reload the page to get the updated list
-//       location.reload();
-//     }
-//   );
-// });

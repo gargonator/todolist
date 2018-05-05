@@ -1,30 +1,45 @@
-<h1>My to do list</h1>
+<div id='container' class='group'>
 
-<h2>To do</h2>
+	<header>
+		<img src='/assets/img/checkbox.png' alt='checkbox'>
+		<h1>My to do list</h1>
+	</header>
 
-<ul>
-	{{#each todos}}
-		{{#unless this.done}}
-			<li>{{this.item_name}}<button class='complete-todo' id={{this.id}}>Completed</button></li>
-		{{/unless}}
-	{{/each}}
-</ul>
+	<form class='create-todo'>
+		<label for='new_todo'>Enter a new to do: </label>
+		<input type="text" name="new-todo">
+		<button type="submit">Submit</button>
+	</form>
 
-<br>
+	<section class='todos-list-pending'>
+		<h2>TO DO</h2>
+			{{#each todos}}
+			{{#unless this.done}}
+				<div class='todo'>
+					<div class='todo-description'>
+						<div class='todo-content'>{{this.item_name}}</div>
+						<button class='todo-completion' id={{this.id}}>Completed</button>
+					</div>
+				</div>
+			{{/unless}}
+			{{/each}}
+	</section>
 
-<h2>Done</h2>
+	<section class='todos-list-done'>
+		<h2>DONE</h2>
+			{{#each todos}}
+			{{#if this.done}}
+				<div class='todo'>
+					<div class='todo-description'>
+						<div class='todo-content'>{{this.item_name}}</div>
+					</div>
+				</div>
+			{{/if}}
+			{{/each}}
+	</section>
 
-<ul>
-	{{#each todos}}
-		{{#if this.done}}
-			<li>{{this.item_name}}</li>
-		{{/if}}
-	{{/each}}
-</ul>
+	<footer>
+		&copy B. Garg 2018
+	</footer>
 
-
-<form class='create-todo'>
-	<p>Enter a new to do:</p>>
-	<input type="text" name="new_todo">
-	<button type="submit">Submit</button>
-</form>
+</div>
