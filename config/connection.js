@@ -1,12 +1,16 @@
 const mysql = require('mysql');
 
 // initialize database connection
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'password',
-	database: 'todo_db'
-});
+if (process.env.JAWSDB_URL) {
+	connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+	var connection = mysql.createConnection({
+		host: 'localhost',
+		user: 'root',
+		password: 'password',
+		database: 'todo_db'
+	});
+}
 
 // display message depending on whether connection is successful
 connection.connect((err) => {
